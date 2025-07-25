@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Huang Gang-Cheng 黃綱正</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --primary-color: #BB86FC;
+      --text-color: #FFFFFF;
+      --accent-color: #03DAC6;
+    }
+    [data-theme="dark"] {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    /* Header styling */
+    header.profile-header {
+      padding: 2rem;
+      background-color: #1F1F1F;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    header.profile-header h1,
+    header.profile-header h2 {
+      margin: 0;
+    }
+    /* Language switch link */
+    nav {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    nav a.lang-switch {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--accent-color);
+      border-radius: 0.3rem;
+    }
+    nav a.lang-switch:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+    /* Contact layout */
+    .contact-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .contact-flex > div {
+      flex: 1;
+      min-width: 150px;
+    }
+    /* Main content */
+    .container { max-width: 800px; margin: auto; padding: 1rem; }
+    section { margin-bottom: 2rem; }
+    h3 { border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+    /* Lists */
+    ul { margin: 0.5rem 0 0.5rem 1rem; padding: 0; }
+    ul li { list-style: disc inside; margin: 0.3rem 0; }
+    /* Language visibility */
+    .zh, .en { display: none; }
+    html[lang="zh"] .zh { display: block; }
+    html[lang="en"] .en { display: block; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" id="toggle-lang" class="lang-switch">EN/中</a>
+  </nav>
+  <header class="profile-header">
+    <img src="GCH_img.jpg" alt="Gang-Cheng Huang" class="profile-img">
+    <h1 class="zh">黃綱正</h1>
+    <h1 class="en">Dr. Gang-Cheng Huang</h1>
+    <h2 class="zh">中國科技大學資訊工程系 助理教授</h2>
+    <h2 class="en">Assistant Professor, Dept. of Computer Science & Information Engineering, China University of Technology</h2>
+  </header>
+  <main class="container">
+    <section>
+      <h3><span class="zh">聯絡方式</span><span class="en">Contact</span></h3>
+      <div class="contact-flex">
+        <div>
+          <p><strong class="zh">電話：</strong><strong class="en">Tel:</strong><br>
+             <span class="zh">(02) 2931-3416 # 2964<br>(03) 699-1111 # 1381</span>
+             <span class="en">+886-2-2931-3416 ext.2964<br>+886-3-699-1111 ext.1381</span>
+          </p>
+        </div>
+        <div>
+          <p><strong class="zh">辦公室：</strong><strong class="en">Office:</strong><br>
+             <span class="zh">台北校區 忠孝樓401室<br>新竹校區 日新樓511室</span>
+             <span class="en">Zhongxiao Building 401, Taipei<br>Rixin Building 511, Hsinchu</span>
+          </p>
+        </div>
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:jacky5112@cute.edu.tw">jacky5112@cute.edu.tw</a></p>
+          <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0001-5932-5761" target="_blank">0009-0001-5932-5761</a></p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3><span class="zh">研究領域</span><span class="en">Research Interest</span></h3>
+      <p class="zh">惡意程式、紅隊演練、資訊安全、人工智慧</p>
+      <p class="en">Malware, Red Team, Cybersecurity, Artificial Intelligence</p>
+    </section>
+    <section>
+      <h3><span class="zh">學歷</span><span class="en">Education</span></h3>
+      <ul class="zh">
+        <li>博士，國防大學理工學院國防科學研究所資訊工程組，2025</li>
+        <li>碩士，國立臺北科技大學自動化科技研究所，2019</li>
+        <li>學士，國防大學理工學院資訊工程學系，2014</li>
+      </ul>
+      <ul class="en">
+        <li>Ph.D., School of Defense Science, Chung Cheng Institute of Technology, National Defense University, 2025</li>
+        <li>M.S., Graduate Institute of Automation Technology, National Taipei University of Technology, 2019</li>
+        <li>B.S., Dept. of Computer Science & Information Engineering, Chung Cheng Institute of Technology, National Defense University, 2014</li>
+      </ul>
+    </section>
+    <section>
+      <h3><span class="zh">發表期刊</span><span class="en">Publications</span></h3>
+      <ul>
+        <li><strong>Huang, G.-C.</strong>, Chang, K.-C., & Lai, T.-H. (2025). Evading Antivirus Detection Using Fountain Code-Based Techniques for Executing Shellcodes. <em>Sensors</em>, 25(2), 460. https://doi.org/10.3390/sym16111526 [SCI Expanded, EI]</li>
+        <li><strong>Huang, G.-C.</strong>, Chang, K.-C., & Lai, T.-H. (2024). Chaotic-Based Shellcode Encryption: A New Strategy for Bypassing Antivirus Mechanisms. <em>Symmetry</em>, 16(11), 1526. https://doi.org/10.3390/s25020460 [SCI Expanded]</li>
+      </ul>
+    </section>
+    <section>
+      <h3><span class="zh">工作經歷</span><span class="en">Work Experience</span></h3>
+      <ul>
+        <li>2022-2024 <span class="zh">台灣資安鑄造股份有限公司 / 處長、技術長、資安長</span><span class="en">Director, CTO, CISO, Taiwan Cyber Security Foundry Company.</span></li>
+        <li>2021-2022 <span class="zh">國家中山科學研究院資訊安全中心 / 助理研究員</span><span class="en">Assistant Researcher, Information Security Center, National Chung-Shan Institute of Science and Technology.</span></li>
+        <li>2020 <span class="zh">凌群電腦股份有限公司 / 資訊安全顧問</span><span class="en">Cybersecurity Consultant, THE SYSCOM GROUP.</span></li>
+        <li>2015-2019 <span class="zh">國防部資通電軍指揮部網路戰聯隊 / 資訊網路官(中尉至上尉)</span><span class="en">Lieutenant (OF-1) – Captain (OF-2), Cyber Warfare Wing, Information, Communications and Electronic Force Command, R.O.C.</span></li>
+        <li>2014-2015 <span class="zh">空軍通信航管資訊聯隊 / 程式設計官(少尉)</span><span class="en">Second Lieutenant (OF-1), Communications, Air Traffic Control & Information Wing, Air Force Combatant Command, R.O.C.</span></li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    document.getElementById('toggle-lang').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.documentElement.lang = document.documentElement.lang === 'zh' ? 'en' : 'zh';
+    });
+  </script>
+</body>
+</html>
