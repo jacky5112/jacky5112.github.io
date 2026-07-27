@@ -125,6 +125,39 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ print ============
+   Browsers do not print background colours, so the dark theme has to be
+   inverted explicitly. Prints whichever language is currently selected. */
+@media print{
+  @page{margin:18mm}
+  html,body{background:#fff!important;color:#000!important;font-size:10.5pt;line-height:1.55}
+  /* every colour is forced opaque first, then the greys below re-assert
+     themselves by specificity — nothing can stay white on white */
+  *,*::before,*::after{color:#000!important}
+  .portrait canvas,.langbar{display:none!important}
+  a{color:#000!important;border-bottom:0!important;text-decoration:underline}
+  .wrap{display:block!important;max-width:none;padding:0!important}
+  .rail{position:static!important;height:auto!important;overflow:visible!important;
+        padding:0 0 5mm!important;border-bottom:1pt solid #bbb;break-after:avoid}
+  .portrait{width:22mm;height:22mm;margin-bottom:4mm}
+  .portrait img{border-color:#bbb!important}
+  .name-zh,.name-en{color:#000!important}
+  .name-zh{font-size:20pt}
+  .name-en{font-size:11pt}
+  .role .dept,.rail-h,.contact dt,.campus,.entry .yr,.muted{color:#444!important}
+  .main{padding:5mm 0 0!important}
+  h2{color:#000!important;border-bottom:1pt solid #999}
+  .interests li{border:1pt solid #999!important;background:none!important;color:#000!important}
+  .entry{break-inside:avoid;border-bottom:.5pt solid #ddd}
+  .venue{color:#000!important}
+  .doi{color:#444!important}
+  .badge{border:.5pt solid #aaa!important;color:#444!important}
+  details{break-inside:avoid}
+  summary::after{display:none}
+  .courses{color:#222!important}
+  footer{border-top:1pt solid #999;color:#444!important}
+}
 </style>
 </head>
 <body>
@@ -503,6 +536,25 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
     draw();
     if(++frames<420) requestAnimationFrame(loop);
   })();
+})();
+
+/* ---------- open every collapsed block before printing ---------- */
+(function(){
+  var opened=[];
+  function expand(){
+    opened=[];
+    Array.prototype.forEach.call(document.querySelectorAll('details:not([open])'),function(d){
+      opened.push(d); d.open=true;
+    });
+  }
+  function restore(){ opened.forEach(function(d){d.open=false}); opened=[]; }
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var h=function(e){ e.matches?expand():restore(); };
+    mq.addEventListener?mq.addEventListener('change',h):mq.addListener(h);
+  }
+  window.addEventListener('beforeprint',expand);
+  window.addEventListener('afterprint',restore);
 })();
 </script>
 </body>
