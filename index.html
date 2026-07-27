@@ -1,321 +1,509 @@
 <!DOCTYPE html>
-<html lang="zh" data-theme="dark">
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Huang Gang-Cheng 黃綱正</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gang-Cheng Huang 黃綱正｜中國科技大學資訊工程系</title>
+<meta name="description" content="黃綱正，中國科技大學資訊工程系助理教授。研究非平衡統計物理、非線性動力學與時空混沌、稀有事件取樣與機器學習方法、資訊安全。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+TC:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#0b0f14;
+  --surface:#121a23;
+  --line:#1f2a36;
+  --text:#dbe3ec;
+  --muted:#8593a4;
+  --accent:#79b8c9;          /* phase A / links */
+  --accent-warm:#c78f5f;     /* phase B / field only */
+  --sans:"IBM Plex Sans","IBM Plex Sans TC",system-ui,sans-serif;
+  --serif:"IBM Plex Serif",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --rail:19rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:15.5px;line-height:1.75;
+  font-feature-settings:"tnum";
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(121,184,201,.28)}
+a:hover{border-bottom-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-  <style>
-    :root {
-      --bg-color: #0d1117;
-      --card-bg: #161b22;
-      --primary-color: #58a6ff;
-      --text-main: #c9d1d9;
-      --text-muted: #8b949e;
-      --border-color: #30363d;
-      --accent-color: #2ea043;
-    }
+/* ---------- language switching ---------- */
+[data-lang="zh"] .en{display:none}
+[data-lang="en"] .zh{display:none}
+li.zh,li.en{display:list-item}
+[data-lang="zh"] li.en,[data-lang="en"] li.zh{display:none}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+/* ---------- layout ---------- */
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:920px){
+  .wrap{display:grid;grid-template-columns:var(--rail) 1fr;gap:4rem;padding:0 2.5rem}
+  .rail{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+        padding:3.5rem 0 2rem;scrollbar-width:thin}
+  .main{padding:3.5rem 0 6rem;min-width:0}
+}
+@media(max-width:919px){
+  .rail{padding:2.5rem 0 1rem}
+  .main{padding:1rem 0 4rem}
+}
 
-    nav {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-    }
+/* ---------- rail ---------- */
+.portrait{position:relative;width:9.5rem;height:9.5rem;margin-bottom:1.5rem}
+.portrait canvas{position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);
+  border-radius:14px;opacity:.5;filter:blur(.4px)}
+.portrait img{position:relative;width:100%;height:100%;object-fit:cover;
+  border-radius:10px;border:1px solid var(--line);display:block}
 
-    nav a.lang-switch {
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      transition: all 0.2s ease-in-out;
-    }
+.name-zh{font-family:var(--serif);font-weight:600;font-size:2rem;line-height:1.1;margin:0;letter-spacing:.04em}
+.name-en{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25;
+  margin:.35rem 0 0;color:var(--muted);letter-spacing:.01em}
+.role{margin:1rem 0 0;font-size:.9rem;line-height:1.6;color:var(--text)}
+.role .dept{display:block;color:var(--muted)}
 
-    nav a.lang-switch:hover {
-      border-color: var(--text-muted);
-      background-color: #21262d;
-    }
+.rail-block{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.rail-h{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 .75rem}
+.contact{margin:0;font-size:.86rem;line-height:1.7}
+.contact dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-top:.85rem}
+.contact dt:first-child{margin-top:0}
+.contact dd{margin:.15rem 0 0}
+.contact .num{font-family:var(--mono);font-size:.82rem}
 
-    header.profile-header {
-      padding: 4rem 2rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      background: linear-gradient(180deg, rgba(22,27,34,1) 0%, rgba(13,17,23,1) 100%);
-    }
+.langbar{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-bottom:1.75rem}
+.langbar button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.12em;padding:.32rem .8rem;cursor:pointer}
+.langbar button[aria-pressed="true"]{background:var(--surface);color:var(--accent)}
 
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--card-bg);
-      box-shadow: 0 0 0 1px var(--border-color);
-      margin-bottom: 1rem;
-    }
+/* ---------- sections ---------- */
+section{margin-bottom:3.25rem}
+h2{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 1.25rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
 
-    header.profile-header h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 700;
-    }
+/* research keywords */
+.interests{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.55rem}
+.interests li{border:1px solid var(--line);border-radius:999px;padding:.32rem .9rem;
+  font-size:.95rem;line-height:1.4;color:#cfdae6;background:rgba(121,184,201,.05);white-space:nowrap}
+[data-lang="en"] .interests li{font-family:var(--mono);font-size:.8rem;letter-spacing:.03em}
 
-    header.profile-header h2 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      text-align: center;
-    }
+/* entries with year gutter */
+.entry{display:grid;grid-template-columns:4.5rem 1fr;gap:1.25rem;padding:1.05rem 0;
+  border-bottom:1px solid rgba(31,42,54,.6)}
+.entry:last-child{border-bottom:0}
+.entry .yr{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:.2rem;white-space:nowrap}
+.entry .bd{min-width:0}
+@media(max-width:560px){
+  .entry{grid-template-columns:1fr;gap:.2rem}
+  .entry .yr{padding-top:0}
+}
+.venue{font-style:italic;color:#b8c6d4}
+.doi{font-family:var(--mono);font-size:.78rem;word-break:break-all}
+.badge{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;
+  color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:.05rem .38rem;
+  margin-left:.35rem;vertical-align:1px;white-space:nowrap}
+.me{font-weight:600;color:#fff}
 
-    .container { 
-      max-width: 850px; 
-      margin: 2rem auto; 
-      padding: 0 1.5rem; 
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+/* teaching */
+details{border-bottom:1px solid rgba(31,42,54,.6)}
+details:last-of-type{border-bottom:0}
+summary{cursor:pointer;list-style:none;padding:.9rem 0;display:flex;align-items:baseline;gap:.9rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--muted);margin-left:auto}
+details[open] summary::after{content:"–"}
+summary .term{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.courses{margin:0 0 1rem;padding-left:1.1rem;color:#c3cedb;font-size:.94rem}
+.courses li{margin:.2rem 0}
+.campus{color:var(--muted);font-size:.85rem}
 
-    section { 
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 
-    h3 { 
-      margin-top: 0;
-      border-bottom: 1px solid var(--border-color); 
-      padding-bottom: 0.8rem; 
-      font-size: 1.3rem;
-      color: var(--primary-color);
-    }
-
-    h4 {
-      margin: 1.2rem 0 0.5rem 0;
-      color: var(--text-main);
-      font-size: 1.1rem;
-    }
-
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    ul { 
-      margin: 0.5rem 0 0.5rem 1.2rem; 
-      padding: 0; 
-    }
-    
-    ul li { 
-      margin: 0.4rem 0; 
-      color: var(--text-muted);
-    }
-    
-    ul li strong {
-      color: var(--text-main);
-    }
-
-    .contact-flex {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .contact-flex > div {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .contact-flex p {
-      margin: 0.5rem 0;
-      color: var(--text-muted);
-    }
-
-    .contact-flex strong {
-      color: var(--text-main);
-    }
-
-    .zh, .en { display: none; }
-    html[lang=zh] .zh { display: block; }
-    html[lang=en] .en { display: block; }
-    
-    span.zh, span.en { display: none; }
-    html[lang=zh] span.zh { display: inline; }
-    html[lang=en] span.en { display: inline; }
-
-  </style>
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <nav>
-    <a href="#" id="toggle-lang" class="lang-switch">EN / 中</a>
-  </nav>
+<div class="wrap">
 
-  <header class="profile-header">
-    <img src="GCH_img.jpg" alt="Gang-Cheng Huang" class="profile-img">
-    <h1 class="zh">黃綱正</h1>
-    <h1 class="en">Dr. Gang-Cheng Huang</h1>
-    <h2 class="zh">中國科技大學資訊工程系 助理教授</h2>
-    <h2 class="en">Assistant Professor, Dept. of Computer Science & Information Engineering<br>China University of Technology</h2>
-  </header>
+<!-- ============ RAIL ============ -->
+<aside class="rail">
+  <div class="langbar" role="group" aria-label="Language">
+    <button id="btn-zh" aria-pressed="false">中文</button>
+    <button id="btn-en" aria-pressed="true">EN</button>
+  </div>
 
-  <main class="container">
-    <section>
-      <h3><span class="zh">聯絡方式</span><span class="en">Contact</span></h3>
-      <div class="contact-flex">
-        <div>
-          <p><strong class="zh">電話 </strong><strong class="en">Tel: </strong><br>
-             <span class="zh">(02) 2931-3416 # 2964<br>(03) 699-1111 # 1381</span>
-             <span class="en">+886-2-2931-3416 ext.2964<br>+886-3-699-1111 ext.1381</span>
-          </p>
-        </div>
-        <div>
-          <p><strong class="zh">辦公室 </strong><strong class="en">Office: </strong><br>
-             <span class="zh">台北校區 忠孝樓401室<br>新竹校區 日新樓511室</span>
-             <span class="en">Zhongxiao Building 401, Taipei<br>Rixin Building 511, Hsinchu</span>
-          </p>
-        </div>
-        <div>
-          <p><strong>Email:</strong> <a href="mailto:jacky5112@cute.edu.tw">jacky5112@cute.edu.tw</a></p>
-          <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0001-5932-5761" target="_blank">0009-0001-5932-5761</a></p>
-        </div>
-      </div>
-    </section>
+  <div class="portrait">
+    <canvas id="field" width="72" height="72" aria-hidden="true"></canvas>
+    <img src="GCH_img.jpg" alt="黃綱正 Gang-Cheng Huang">
+  </div>
 
-    <section>
-      <h3><span class="zh">研究領域</span><span class="en">Research Interest</span></h3>
-      <p class="zh" style="color: var(--text-muted);">人工智慧、強化學習、混沌理論、資訊安全</p>
-      <p class="en" style="color: var(--text-muted);">Artificial Intelligence, Reinforcement Learning, Chaos Theory, Information Security</p>
-    </section>
+  <h1 class="name-zh zh">黃綱正</h1>
+  <h1 class="name-en">Gang-Cheng Huang, Ph.D.</h1>
 
-	<section>
-      <h3><span class="zh">學歷</span><span class="en">Education</span></h3>
-      <ul class="zh">
-        <li>博士，國防大學理工學院國防科學研究所資訊工程組，2025</li>
-        <li>碩士，國立臺北科技大學自動化科技研究所，2019</li>
-        <li>學士，國防大學理工學院資訊工程學系，2014</li>
-      </ul>
-      <ul class="en">
-        <li>Ph.D., School of Defense Science, Chung Cheng Institute of Technology, National Defense University, 2025</li>
-        <li>M.S., Graduate Institute of Automation Technology, National Taipei University of Technology, 2019</li>
-        <li>B.S., Dept. of Computer Science & Information Engineering, Chung Cheng Institute of Technology, National Defense University, 2014</li>
-      </ul>
-    </section>
+  <p class="role zh">助理教授
+    <span class="dept">中國科技大學 資訊工程系</span></p>
+  <p class="role en">Assistant Professor
+    <span class="dept">Dept. of Computer Science &amp; Information Engineering,<br>China University of Technology</span></p>
 
-    <section>
-      <h3><span class="zh">發表期刊</span><span class="en">Publications</span></h3>
-      <ul>
-		<li><strong>Huang, G.-C.</strong> (2026). Hybrid quantum architecture search for compact diagnostic surrogates of early-time scrambling signatures in hyperchaotic systems. <em>Physica Scripta</em>, 101(29), 296008. <a href="https://doi.org/10.1088/1402-4896/ae8ac9" target="_blank">https://doi.org/10.1088/1402-4896/ae8ac9</a> [SCI Expanded]</li>
-		<li><strong>Huang, G.-C.</strong> (2026). CIP-BaseX: A Lightweight RFC 4648-Compatible Obfuscation Layer Against IoT Payload Fingerprinting. <em>IEEE Internet of Things Journal</em>, 13(13), 28573-28586. <a href="http://doi.org/10.1109/JIOT.2026.3684991" target="_blank">http://doi.org/10.1109/JIOT.2026.3684991</a> [SCI Expanded]</li>
-		<li><strong>Huang, G.-C.</strong> (2026). Robust stabilization of fractional spatiotemporal chaos via model-free deep reinforcement learning. <em>Physical Review E</em>, 113(4), 044202. <a href="https://doi.org/10.1103/t7s9-bv79" target="_blank">https://doi.org/10.1103/t7s9-bv79</a> [SCI Expanded]</li>
-		<li><strong>Huang, G.-C.</strong> (2026). AI-assisted inverse discovery of 3D/4D multi-scroll attractors and fractional-order robustness assessment. <em>Physica Scripta</em>, 101(14), 145214. <a href="https://doi.org/10.1088/1402-4896/ae58ff" target="_blank">https://doi.org/10.1088/1402-4896/ae58ff</a> [SCI Expanded]</li>
-        <li><strong>Huang, G.-C.</strong> & Lai, T.-H. (2025). Legacy Code, Live Risk: Empirical Evidence of Malware Detection Gaps. <em>Applied Sciences</em>, 15(22), 11862. <a href="https://doi.org/10.3390/app152211862" target="_blank">https://doi.org/10.3390/app152211862</a> [SCI Expanded, EI]</li>
-        <li><strong>Huang, G.-C.</strong> (2025). Efficient Parameter Search for Chaotic Dynamical Systems Using Lyapunov-Based Reinforcement Learning. <em>Symmetry</em>, 17(11), 1832. <a href="https://doi.org/10.3390/sym17111832" target="_blank">https://doi.org/10.3390/sym17111832</a> [SCI Expanded]</li>
-        <li><strong>Huang, G.-C.</strong>, Chang, K.-C., & Lai, T.-H. (2025). Evading Antivirus Detection Using Fountain Code-Based Techniques for Executing Shellcodes. <em>Sensors</em>, 25(2), 460. <a href="https://doi.org/10.3390/s25020460" target="_blank">https://doi.org/10.3390/s25020460</a> [SCI Expanded, EI]</li>
-        <li><strong>Huang, G.-C.</strong>, Chang, K.-C., & Lai, T.-H. (2024). Chaotic-Based Shellcode Encryption: A New Strategy for Bypassing Antivirus Mechanisms. <em>Symmetry</em>, 16(11), 1526. <a href="https://doi.org/10.3390/sym16111526" target="_blank">https://doi.org/10.3390/sym16111526</a> [SCI Expanded]</li>
-      </ul>
-    </section>
+  <div class="rail-block">
+    <p class="rail-h zh">聯絡</p>
+    <p class="rail-h en">Contact</p>
+    <dl class="contact">
+      <dt>Email</dt>
+      <dd><a href="mailto:jacky5112@cute.edu.tw">jacky5112@cute.edu.tw</a></dd>
 
-    <section>
-      <h3><span class="zh">工作經歷</span><span class="en">Work Experience</span></h3>
-      <ul>
-        <li><strong style="color:var(--text-main)">2025/08 ~ <span class="zh">現今</span><span class="en">Present</span></strong> <span class="zh">中國科技大學資訊工程系 / 助理教授</span><span class="en">Assistant Professor, Dept. of Computer Science & Information Engineering, China University of Technology.</span></li>
-        <li><strong style="color:var(--text-main)">2024/08 ~ 2025/07</strong> <span class="zh">中國科技大學資訊工程系 / 助理教授級專業技術人員</span><span class="en">Assistant Professor Rank Specialist, Dept. of Computer Science & Information Engineering, China University of Technology.</span></li>
-        <li><strong style="color:var(--text-main)">2022 ~ 2024</strong> <span class="zh">台灣資安鑄造股份有限公司 / 處長、技術長、資安長</span><span class="en">Director, CTO, CISO, Taiwan Cyber Security Foundry Company.</span></li>
-        <li><strong style="color:var(--text-main)">2021 ~ 2022</strong> <span class="zh">國家中山科學研究院資訊安全中心 / 助理研究員</span><span class="en">Assistant Researcher, Information Security Center, National Chung-Shan Institute of Science and Technology.</span></li>
-        <li><strong style="color:var(--text-main)">2020</strong> <span class="zh">凌群電腦股份有限公司 / 資訊安全顧問</span><span class="en">Cybersecurity Consultant, THE SYSCOM GROUP.</span></li>
-        <li><strong style="color:var(--text-main)">2015 ~ 2019</strong> <span class="zh">國防部資通電軍指揮部網路戰聯隊 / 資訊網路官(中尉至上尉)</span><span class="en">Lieutenant (OF-1) - Captain (OF-2), Cyber Warfare Wing, Information, Communications and Electronic Force Command, R.O.C.</span></li>
-        <li><strong style="color:var(--text-main)">2014 ~ 2015</strong> <span class="zh">空軍通信航管資訊聯隊 / 程式設計官(少尉)</span><span class="en">Second Lieutenant (OF-1), Communications, Air Traffic Control & Information Wing, Air Force Combatant Command, R.O.C.</span></li>
-      </ul>
-    </section>
-	
-	<section>
-      <h3><span class="zh">教學經歷</span><span class="en">Teaching</span></h3>
-      
-      <h4 class="zh">114學年度 下學期</h4>
-      <h4 class="en">2026 Spring Semester</h4>
-      <ul class="zh">
-        <li>網路概論（新竹校區）</li>
-        <li>網路規劃設計（新竹校區）</li>
-        <li>Python程式語言（台北校區）</li>
-        <li>Python程式語言實務（台北校區）</li>
-      </ul>
-      <ul class="en">
-        <li>Computer Networks and the Internet (Hsinchu Campus)</li>
-        <li>Network Planning and Design (Hsinchu Campus)</li>
-        <li>Python Programming Language (Taipei Campus)</li>
-        <li>Python Programming in Practice (Taipei Campus)</li>
-      </ul>
+      <dt>ORCID</dt>
+      <dd><a href="https://orcid.org/0009-0001-5932-5761" class="doi">0009-0001-5932-5761</a></dd>
 
-      <h4 class="zh">114學年度 上學期</h4>
-      <h4 class="en">2025 Fall Semester</h4>
-      <ul class="zh">
-        <li>無線與行動網路概論（新竹校區）</li>
-        <li>網路概論（台北校區）</li>
-        <li>無線通訊與網路安全技術（台北校區，碩士班）</li>
-        <li>資訊安全導論（台北校區，碩士班）</li>
-      </ul>
-      <ul class="en">
-        <li>Introduction to Wireless and Mobile Networking (Hsinchu Campus)</li>
-        <li>Computer Networks and the Internet (Taipei Campus)</li>
-        <li>Wireless Communications and Network Security (Taipei Campus, M.S.)</li>
-        <li>Introduction to Information Security (Taipei Campus, M.S.)</li>
-      </ul>
+      <dt class="zh">台北校區</dt>
+      <dt class="en">Taipei Campus</dt>
+      <dd class="zh">忠孝樓 401 室<br><span class="num">(02) 2931-3416 轉 2964</span></dd>
+      <dd class="en">Zhongxiao Building, Room 401<br><span class="num">+886-2-2931-3416 ext. 2964</span></dd>
 
-      <h4 class="zh">113學年度 下學期</h4>
-      <h4 class="en">2025 Spring Semester</h4>
-      <ul class="zh">
-        <li>APPs 安全檢測（台北／新竹校區）</li>
-        <li>軟體測試（台北／新竹校區）</li>
-      </ul>
-      <ul class="en">
-        <li>Apps Security Testing (Taipei &amp; Hsinchu Campuses)</li>
-        <li>Software Testing (Taipei &amp; Hsinchu Campuses)</li>
-      </ul>
+      <dt class="zh">新竹校區</dt>
+      <dt class="en">Hsinchu Campus</dt>
+      <dd class="zh">日新樓 511 室<br><span class="num">(03) 699-1111 轉 1381</span></dd>
+      <dd class="en">Rixin Building, Room 511<br><span class="num">+886-3-699-1111 ext. 1381</span></dd>
+    </dl>
+  </div>
+</aside>
 
-      <h4 class="zh">113學年度 上學期</h4>
-      <h4 class="en">2024 Fall Semester</h4>
-      <ul class="zh">
-        <li>網際網路與網頁安全（新竹校區）</li>
-        <li>網站安全防護實務（台北校區）</li>
-        <li>物聯網系統整合應用（台北校區，碩士班）</li>
-        <li>資訊安全導論（台北校區，碩士班）</li>
-      </ul>
-      <ul class="en">
-        <li>Internet and Website Security (Hsinchu Campus)</li>
-        <li>Web Application Security Practice (Taipei Campus)</li>
-        <li>Development Trend of Smart Applications and IoT (Taipei Campus, M.S.)</li>
-        <li>Introduction to Information Security (Taipei Campus, M.S.)</li>
-      </ul>  
-    </section>
-  </main>
+<!-- ============ MAIN ============ -->
+<main class="main">
 
-  <script>
-    document.getElementById('toggle-lang').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.documentElement.lang = document.documentElement.lang === 'zh' ? 'en' : 'zh';
-    });
-  </script>
+<section id="research">
+  <h2 class="zh">研究領域</h2>
+  <h2 class="en">Research Interests</h2>
+  <ul class="interests">
+    <li class="zh">複雜系統</li><li class="en">Complex systems</li>
+    <li class="zh">非線性動力學</li><li class="en">Nonlinear dynamics</li>
+    <li class="zh">人工智慧</li><li class="en">Artificial intelligence</li>
+    <li class="zh">資訊安全</li><li class="en">Information security</li>
+  </ul>
+</section>
+
+<section id="publications">
+  <h2 class="zh">期刊論文</h2>
+  <h2 class="en">Journal Publications</h2>
+
+  <div class="entry">
+    <div class="yr">2026</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span> Hybrid quantum architecture search for compact diagnostic surrogates of early-time scrambling signatures in hyperchaotic systems.
+      <span class="venue">Physica Scripta</span>, 101(29), 296008.<span class="badge">SCIE</span><br>
+      <a class="doi" href="https://doi.org/10.1088/1402-4896/ae8ac9">doi.org/10.1088/1402-4896/ae8ac9</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2026</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span> CIP-BaseX: A lightweight RFC 4648-compatible obfuscation layer against IoT payload fingerprinting.
+      <span class="venue">IEEE Internet of Things Journal</span>, 13(13), 28573–28586.<span class="badge">SCIE</span><span class="badge">EI</span><br>
+      <a class="doi" href="https://doi.org/10.1109/JIOT.2026.3684991">doi.org/10.1109/JIOT.2026.3684991</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2026</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span> Robust stabilization of fractional spatiotemporal chaos via model-free deep reinforcement learning.
+      <span class="venue">Physical Review E</span>, 113(4), 044202.<span class="badge">SCIE</span><br>
+      <a class="doi" href="https://doi.org/10.1103/t7s9-bv79">doi.org/10.1103/t7s9-bv79</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2026</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span> AI-assisted inverse discovery of 3D/4D multi-scroll attractors and fractional-order robustness assessment.
+      <span class="venue">Physica Scripta</span>, 101(14), 145214.<span class="badge">SCIE</span><br>
+      <a class="doi" href="https://doi.org/10.1088/1402-4896/ae58ff">doi.org/10.1088/1402-4896/ae58ff</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2025</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span>, &amp; Lai, T.-H. Legacy code, live risk: Empirical evidence of malware detection gaps.
+      <span class="venue">Applied Sciences</span>, 15(22), 11862.<span class="badge">SCIE</span><span class="badge">EI</span><br>
+      <a class="doi" href="https://doi.org/10.3390/app152211862">doi.org/10.3390/app152211862</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2025</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span> Efficient parameter search for chaotic dynamical systems using Lyapunov-based reinforcement learning.
+      <span class="venue">Symmetry</span>, 17(11), 1832.<span class="badge">SCIE</span><br>
+      <a class="doi" href="https://doi.org/10.3390/sym17111832">doi.org/10.3390/sym17111832</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2025</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Evading antivirus detection using fountain code-based techniques for executing shellcodes.
+      <span class="venue">Sensors</span>, 25(2), 460.<span class="badge">SCIE</span><span class="badge">EI</span><br>
+      <a class="doi" href="https://doi.org/10.3390/s25020460">doi.org/10.3390/s25020460</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2024</div>
+    <div class="bd">
+      <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Chaotic-based shellcode encryption: A new strategy for bypassing antivirus mechanisms.
+      <span class="venue">Symmetry</span>, 16(11), 1526.<span class="badge">SCIE</span><br>
+      <a class="doi" href="https://doi.org/10.3390/sym16111526">doi.org/10.3390/sym16111526</a>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="zh">學歷</h2>
+  <h2 class="en">Education</h2>
+
+  <div class="entry">
+    <div class="yr">2025</div>
+    <div class="bd">
+      <div class="zh"><strong>博士</strong>，資訊工程<br>
+        <span class="campus">國防大學理工學院 國防科學研究所 資訊工程組</span></div>
+      <div class="en"><strong>Ph.D.</strong>, Computer Science and Engineering<br>
+        <span class="campus">Graduate School of Defense Science, Chung Cheng Institute of Technology, National Defense University</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2019</div>
+    <div class="bd">
+      <div class="zh"><strong>碩士</strong>，自動化科技<br>
+        <span class="campus">國立臺北科技大學 自動化科技研究所</span></div>
+      <div class="en"><strong>M.S.</strong>, Automation Technology<br>
+        <span class="campus">Graduate Institute of Automation Technology, National Taipei University of Technology</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2014</div>
+    <div class="bd">
+      <div class="zh"><strong>學士</strong>，資訊工程<br>
+        <span class="campus">國防大學理工學院 資訊工程學系</span></div>
+      <div class="en"><strong>B.S.</strong>, Computer Science and Information Engineering<br>
+        <span class="campus">Chung Cheng Institute of Technology, National Defense University</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="zh">工作經歷</h2>
+  <h2 class="en">Work Experience</h2>
+
+  <div class="entry">
+    <div class="yr zh">2025.08–</div><div class="yr en">2025.08–</div>
+    <div class="bd">
+      <div class="zh"><strong>助理教授</strong><br><span class="campus">中國科技大學 資訊工程系</span></div>
+      <div class="en"><strong>Assistant Professor</strong><br><span class="campus">Dept. of Computer Science &amp; Information Engineering, China University of Technology</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2024–25</div>
+    <div class="bd">
+      <div class="zh"><strong>助理教授級專業技術人員</strong><br><span class="campus">中國科技大學 資訊工程系</span></div>
+      <div class="en"><strong>Assistant Professor-Rank Specialist</strong><br><span class="campus">Dept. of Computer Science &amp; Information Engineering, China University of Technology</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2022–24</div>
+    <div class="bd">
+      <div class="zh"><strong>處長、技術長、資安長</strong><br><span class="campus">台灣資安鑄造股份有限公司</span></div>
+      <div class="en"><strong>Director, CTO, CISO</strong><br><span class="campus">Taiwan Cyber Security Foundry Company</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2021–22</div>
+    <div class="bd">
+      <div class="zh"><strong>助理研究員</strong><br><span class="campus">國家中山科學研究院 資訊安全中心</span></div>
+      <div class="en"><strong>Assistant Researcher</strong><br><span class="campus">Information Security Center, National Chung-Shan Institute of Science and Technology</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2020</div>
+    <div class="bd">
+      <div class="zh"><strong>資訊安全顧問</strong><br><span class="campus">凌群電腦股份有限公司</span></div>
+      <div class="en"><strong>Cybersecurity Consultant</strong><br><span class="campus">SYSCOM Group</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2015–19</div>
+    <div class="bd">
+      <div class="zh"><strong>資訊網路官</strong>（中尉至上尉）<br><span class="campus">國防部資通電軍指揮部 網路戰聯隊</span></div>
+      <div class="en"><strong>Network Officer</strong> (Lieutenant to Captain)<br><span class="campus">Cyber Warfare Wing, Information, Communications and Electronic Force Command, R.O.C. Armed Forces</span></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="yr">2014–15</div>
+    <div class="bd">
+      <div class="zh"><strong>程式設計官</strong>（少尉）<br><span class="campus">空軍通信航管資訊聯隊</span></div>
+      <div class="en"><strong>Software Officer</strong> (Second Lieutenant)<br><span class="campus">Communications, Air Traffic Control &amp; Information Wing, R.O.C. Air Force</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <h2 class="zh">教學</h2>
+  <h2 class="en">Teaching</h2>
+
+  <details open>
+    <summary>
+      <span class="zh">114 學年度 下學期</span><span class="en">Spring 2026</span>
+      <span class="term zh">2026 Spring</span><span class="term en">114-2</span>
+    </summary>
+    <ul class="courses zh">
+      <li>網路概論 <span class="campus">新竹</span></li>
+      <li>網路規劃設計 <span class="campus">新竹</span></li>
+      <li>Python 程式語言 <span class="campus">台北</span></li>
+      <li>Python 程式語言實務 <span class="campus">台北</span></li>
+    </ul>
+    <ul class="courses en">
+      <li>Computer Networks and the Internet <span class="campus">Hsinchu</span></li>
+      <li>Network Planning and Design <span class="campus">Hsinchu</span></li>
+      <li>Python Programming Language <span class="campus">Taipei</span></li>
+      <li>Python Programming in Practice <span class="campus">Taipei</span></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>
+      <span class="zh">114 學年度 上學期</span><span class="en">Fall 2025</span>
+      <span class="term zh">2025 Fall</span><span class="term en">114-1</span>
+    </summary>
+    <ul class="courses zh">
+      <li>無線與行動網路概論 <span class="campus">新竹</span></li>
+      <li>網路概論 <span class="campus">台北</span></li>
+      <li>無線通訊與網路安全技術 <span class="campus">台北・碩士班</span></li>
+      <li>資訊安全導論 <span class="campus">台北・碩士班</span></li>
+    </ul>
+    <ul class="courses en">
+      <li>Introduction to Wireless and Mobile Networking <span class="campus">Hsinchu</span></li>
+      <li>Computer Networks and the Internet <span class="campus">Taipei</span></li>
+      <li>Wireless Communications and Network Security <span class="campus">Taipei · M.S.</span></li>
+      <li>Introduction to Information Security <span class="campus">Taipei · M.S.</span></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>
+      <span class="zh">113 學年度 下學期</span><span class="en">Spring 2025</span>
+      <span class="term zh">2025 Spring</span><span class="term en">113-2</span>
+    </summary>
+    <ul class="courses zh">
+      <li>APPs 安全檢測 <span class="campus">台北・新竹</span></li>
+      <li>軟體測試 <span class="campus">台北・新竹</span></li>
+    </ul>
+    <ul class="courses en">
+      <li>Apps Security Testing <span class="campus">Taipei · Hsinchu</span></li>
+      <li>Software Testing <span class="campus">Taipei · Hsinchu</span></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>
+      <span class="zh">113 學年度 上學期</span><span class="en">Fall 2024</span>
+      <span class="term zh">2024 Fall</span><span class="term en">113-1</span>
+    </summary>
+    <ul class="courses zh">
+      <li>網際網路與網頁安全 <span class="campus">新竹</span></li>
+      <li>網站安全防護實務 <span class="campus">台北</span></li>
+      <li>物聯網系統整合應用 <span class="campus">台北・碩士班</span></li>
+      <li>資訊安全導論 <span class="campus">台北・碩士班</span></li>
+    </ul>
+    <ul class="courses en">
+      <li>Internet and Website Security <span class="campus">Hsinchu</span></li>
+      <li>Web Application Security Practice <span class="campus">Taipei</span></li>
+      <li>Smart Applications and IoT System Integration <span class="campus">Taipei · M.S.</span></li>
+      <li>Introduction to Information Security <span class="campus">Taipei · M.S.</span></li>
+    </ul>
+  </details>
+</section>
+
+<footer>
+  <span class="zh">最後更新 2026.07　·　黃綱正</span>
+  <span class="en">Last updated 2026.07　·　Gang-Cheng Huang</span>
+</footer>
+
+</main>
+</div>
+
+<script>
+/* ---------- language toggle ---------- */
+(function(){
+  var root=document.documentElement, bz=document.getElementById('btn-zh'), be=document.getElementById('btn-en');
+  function set(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang', l==='zh' ? 'zh-Hant' : 'en');
+    bz.setAttribute('aria-pressed', l==='zh');
+    be.setAttribute('aria-pressed', l==='en');
+  }
+  bz.addEventListener('click',function(){set('zh')});
+  be.addEventListener('click',function(){set('en')});
+})();
+
+/* ---------- Cahn-Hilliard phase separation behind the portrait ---------- */
+(function(){
+  var cv=document.getElementById('field'); if(!cv) return;
+  var ctx=cv.getContext('2d'), N=cv.width, M=N*N;
+  var c=new Float32Array(M), mu=new Float32Array(M), lap=new Float32Array(M);
+  var dt=0.012, eps2=1.6;
+  for(var i=0;i<M;i++) c[i]=(Math.random()-0.5)*0.15;
+
+  function laplace(src,dst){
+    for(var y=0;y<N;y++){
+      var yu=((y-1+N)%N)*N, yd=((y+1)%N)*N, y0=y*N;
+      for(var x=0;x<N;x++){
+        var xl=(x-1+N)%N, xr=(x+1)%N;
+        dst[y0+x]=src[yu+x]+src[yd+x]+src[y0+xl]+src[y0+xr]-4*src[y0+x];
+      }
+    }
+  }
+  function step(){
+    laplace(c,lap);
+    for(var i=0;i<M;i++){var v=c[i];mu[i]=v*v*v-v-eps2*lap[i];}
+    laplace(mu,lap);
+    for(var i=0;i<M;i++) c[i]+=dt*lap[i];
+  }
+  var img=ctx.createImageData(N,N);
+  // phase A #79b8c9 -> phase B #c78f5f, over #0b0f14
+  function draw(){
+    var d=img.data;
+    for(var i=0;i<M;i++){
+      var t=Math.max(0,Math.min(1,(c[i]+1)/2));
+      d[i*4]  =Math.round(121+(199-121)*t);
+      d[i*4+1]=Math.round(184+(143-184)*t);
+      d[i*4+2]=Math.round(201+( 95-201)*t);
+      d[i*4+3]=Math.round(40+215*Math.abs(c[i]));
+    }
+    ctx.putImageData(img,0,0);
+  }
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced){ for(var k=0;k<3000;k++) step(); draw(); return; }
+  var frames=0;
+  (function loop(){
+    for(var k=0;k<7;k++) step();
+    draw();
+    if(++frames<420) requestAnimationFrame(loop);
+  })();
+})();
+</script>
 </body>
 </html>
