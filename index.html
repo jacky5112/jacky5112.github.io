@@ -94,12 +94,11 @@ li.zh,li.en{display:list-item}
 
 @media(max-width:919px){
   .site-nav{margin-top:1.5rem;padding-top:1rem}
-  .site-nav .rail-h{margin-bottom:.55rem}
   .nav-list{display:flex;gap:.45rem;overflow-x:auto;padding:0 0 .45rem;scrollbar-width:none;
-    -webkit-overflow-scrolling:touch}
+    -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scroll-snap-type:x proximity}
   .nav-list::-webkit-scrollbar{display:none}
-  .nav-list li{flex:0 0 auto}
-  .nav-list a{border:1px solid var(--line);border-radius:999px;padding:.3rem .72rem;white-space:nowrap}
+  .nav-list li{flex:0 0 auto;scroll-snap-align:center}
+  .nav-list a{border:1px solid var(--line);border-radius:999px;padding:.3rem .72rem;white-space:nowrap;touch-action:manipulation}
   .nav-list a::before{display:none}
   .nav-list a.active,.nav-list a[aria-current="location"]{background:var(--surface);border-color:rgba(121,184,201,.5)}
 }
@@ -209,8 +208,6 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
     <span class="dept">Dept. of Computer Science &amp; Information Engineering,<br>China University of Technology</span></p>
 
   <nav class="site-nav" aria-label="Section navigation">
-    <p class="rail-h zh">導覽</p>
-    <p class="rail-h en">Navigation</p>
     <ul class="nav-list">
       <li><a href="#research"><span class="zh">研究領域</span><span class="en">Research</span></a></li>
       <li><a href="#grants"><span class="zh">研究計畫</span><span class="en">Grants</span></a></li>
@@ -578,8 +575,19 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   var sections=links.map(function(a){
     return document.querySelector(a.getAttribute('href'));
   }).filter(Boolean);
+  var navList=document.querySelector('.nav-list');
+  var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var activeId='';
   var ticking=false;
+
+  function keepActiveVisible(a){
+    if(!navList || window.innerWidth>919) return;
+    var left=a.offsetLeft-(navList.clientWidth-a.offsetWidth)/2;
+    navList.scrollTo({
+      left:Math.max(0,left),
+      behavior:reduceMotion?'auto':'smooth'
+    });
+  }
 
   function setActive(id){
     if(id===activeId) return;
@@ -587,18 +595,30 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
     links.forEach(function(a){
       var on=a.getAttribute('href')==='#'+id;
       a.classList.toggle('active',on);
-      if(on) a.setAttribute('aria-current','location');
-      else a.removeAttribute('aria-current');
+      if(on){
+        a.setAttribute('aria-current','location');
+        keepActiveVisible(a);
+      }else{
+        a.removeAttribute('aria-current');
+      }
     });
   }
 
   function update(){
     ticking=false;
-    var marker=Math.max(90,window.innerHeight*0.22);
+
+    /* Use a small, fixed reading line near the top of the viewport.
+       This keeps a short first section (Research) active at page load
+       instead of letting the next section win simply because it is nearby. */
+    var marker=window.innerWidth<=919?72:96;
     var current=sections[0];
-    sections.forEach(function(sec){
-      if(sec.getBoundingClientRect().top<=marker) current=sec;
-    });
+
+    if(window.scrollY>8){
+      sections.forEach(function(sec){
+        if(sec.getBoundingClientRect().top<=marker) current=sec;
+      });
+    }
+
     if((window.innerHeight+window.scrollY)>=document.documentElement.scrollHeight-4){
       current=sections[sections.length-1];
     }
