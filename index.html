@@ -24,7 +24,7 @@
   --rail:19rem;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--text);
   font-family:var(--sans);font-size:15.5px;line-height:1.75;
@@ -81,10 +81,35 @@ li.zh,li.en{display:list-item}
   letter-spacing:.12em;padding:.32rem .8rem;cursor:pointer}
 .langbar button[aria-pressed="true"]{background:var(--surface);color:var(--accent)}
 
+/* ---------- section navigation ---------- */
+.site-nav{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.nav-list{list-style:none;margin:0;padding:0;display:grid;gap:.16rem}
+.nav-list a{display:flex;align-items:center;gap:.6rem;padding:.28rem 0;color:var(--muted);
+  border-bottom:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;line-height:1.45}
+.nav-list a::before{content:"";width:.55rem;height:1px;background:var(--line);flex:0 0 auto;transition:width .18s ease,background .18s ease}
+.nav-list a:hover{color:var(--text)}
+.nav-list a:hover::before{background:var(--accent)}
+.nav-list a.active,.nav-list a[aria-current="location"]{color:var(--accent)}
+.nav-list a.active::before,.nav-list a[aria-current="location"]::before{width:1.1rem;background:var(--accent)}
+
+@media(max-width:919px){
+  .site-nav{margin-top:1.5rem;padding-top:1rem}
+  .site-nav .rail-h{margin-bottom:.55rem}
+  .nav-list{display:flex;gap:.45rem;overflow-x:auto;padding:0 0 .45rem;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch}
+  .nav-list::-webkit-scrollbar{display:none}
+  .nav-list li{flex:0 0 auto}
+  .nav-list a{border:1px solid var(--line);border-radius:999px;padding:.3rem .72rem;white-space:nowrap}
+  .nav-list a::before{display:none}
+  .nav-list a.active,.nav-list a[aria-current="location"]{background:var(--surface);border-color:rgba(121,184,201,.5)}
+}
+
 /* ---------- sections ---------- */
-section{margin-bottom:3.25rem}
+section{margin-bottom:3.25rem;scroll-margin-top:1.5rem}
 h2{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted);margin:0 0 1.25rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.subsection{font-family:var(--sans);font-weight:600;font-size:.86rem;letter-spacing:.04em;
+  color:#c8d3df;margin:.1rem 0 .35rem}
 
 /* research keywords */
 .interests{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.55rem}
@@ -124,7 +149,7 @@ summary .term{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
 footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em}
 
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*{animation:none!important;transition:none!important}}
 
 /* ============ print ============
    Browsers do not print background colours, so the dark theme has to be
@@ -135,7 +160,7 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   /* every colour is forced opaque first, then the greys below re-assert
      themselves by specificity — nothing can stay white on white */
   *,*::before,*::after{color:#000!important}
-  .portrait canvas,.langbar{display:none!important}
+  .portrait canvas,.langbar,.site-nav{display:none!important}
   a{color:#000!important;border-bottom:0!important;text-decoration:underline}
   .wrap{display:block!important;max-width:none;padding:0!important}
   .rail{position:static!important;height:auto!important;overflow:visible!important;
@@ -183,6 +208,20 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   <p class="role en">Assistant Professor
     <span class="dept">Dept. of Computer Science &amp; Information Engineering,<br>China University of Technology</span></p>
 
+  <nav class="site-nav" aria-label="Section navigation">
+    <p class="rail-h zh">導覽</p>
+    <p class="rail-h en">Navigation</p>
+    <ul class="nav-list">
+      <li><a href="#research"><span class="zh">研究領域</span><span class="en">Research</span></a></li>
+      <li><a href="#grants"><span class="zh">研究計畫</span><span class="en">Grants</span></a></li>
+      <li><a href="#publications"><span class="zh">期刊論文</span><span class="en">Publications</span></a></li>
+      <li><a href="#talks"><span class="zh">受邀演講</span><span class="en">Invited Talks</span></a></li>
+      <li><a href="#education"><span class="zh">學歷</span><span class="en">Education</span></a></li>
+      <li><a href="#experience"><span class="zh">工作經歷</span><span class="en">Experience</span></a></li>
+      <li><a href="#teaching"><span class="zh">教學</span><span class="en">Teaching</span></a></li>
+    </ul>
+  </nav>
+
   <div class="rail-block">
     <p class="rail-h zh">聯絡</p>
     <p class="rail-h en">Contact</p>
@@ -220,18 +259,21 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   </ul>
 </section>
 
-<section id="projects">
+<section id="grants">
   <h2 class="zh">研究計畫</h2>
   <h2 class="en">Research Grants</h2>
+
+  <h3 class="subsection zh">計畫主持人</h3>
+  <h3 class="subsection en">Principal Investigator</h3>
 
   <div class="entry">
     <div class="yr">2026–27</div>
     <div class="bd">
-      <div class="zh"><strong><a href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&LANG=chi" target="_blank" rel="noopener noreferrer">非線性複雜科學系統之人工智慧自動發現與穩健控制方法</a></strong><br>
-        <span class="campus">國家科學及技術委員會・新進人員研究計畫（個別型）・計畫主持人</span><span class="badge">NSTC</span><br>
+      <div class="zh"><strong><a href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&amp;rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&amp;LANG=chi" target="_blank" rel="noopener noreferrer">非線性複雜科學系統之人工智慧自動發現與穩健控制方法</a></strong><br>
+        <span class="campus">國家科學及技術委員會・新進人員研究計畫（個別型）</span><span class="badge">NSTC</span><br>
         <span class="doi">NSTC 115-2222-E-163-001</span></div>
-      <div class="en"><strong><a href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&LANG=chi" target="_blank" rel="noopener noreferrer">Artificial Intelligence Methods for Autonomous Discovery and Robust Control of Nonlinear Complex Scientific Systems</a></strong><br>
-        <span class="campus">National Science and Technology Council · Early-Career Research Project (Individual Grant) · Principal Investigator</span><span class="badge">NSTC</span><br>
+      <div class="en"><strong><a href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&amp;rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&amp;LANG=chi" target="_blank" rel="noopener noreferrer">Artificial Intelligence Methods for Autonomous Discovery and Robust Control of Nonlinear Complex Scientific Systems</a></strong><br>
+        <span class="campus">National Science and Technology Council · Early-Career Research Project (Individual Grant)</span><span class="badge">NSTC</span><br>
         <span class="doi">NSTC 115-2222-E-163-001</span></div>
     </div>
   </div>
@@ -322,7 +364,7 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
     <div class="yr">2026.04</div>
     <div class="bd">
       <div class="zh"><strong>AI for Science</strong><br>
-        <span class="campus">受邀演講，國防大學理工學院 資訊工程系</span></div>
+        <span class="campus">國防大學理工學院 資訊工程系</span></div>
       <div class="en"><strong>AI for Science</strong><br>
         <span class="campus">Department of Computer Science and Information Engineering, Chung Cheng Institute of Technology, National Defense University</span></div>
     </div>
@@ -526,6 +568,54 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
   }
   bz.addEventListener('click',function(){set('zh')});
   be.addEventListener('click',function(){set('en')});
+})();
+
+/* ---------- section navigation / active section ---------- */
+(function(){
+  var links=Array.prototype.slice.call(document.querySelectorAll('.site-nav a[href^="#"]'));
+  if(!links.length) return;
+
+  var sections=links.map(function(a){
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+  var activeId='';
+  var ticking=false;
+
+  function setActive(id){
+    if(id===activeId) return;
+    activeId=id;
+    links.forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('active',on);
+      if(on) a.setAttribute('aria-current','location');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  function update(){
+    ticking=false;
+    var marker=Math.max(90,window.innerHeight*0.22);
+    var current=sections[0];
+    sections.forEach(function(sec){
+      if(sec.getBoundingClientRect().top<=marker) current=sec;
+    });
+    if((window.innerHeight+window.scrollY)>=document.documentElement.scrollHeight-4){
+      current=sections[sections.length-1];
+    }
+    if(current) setActive(current.id);
+  }
+
+  function requestUpdate(){
+    if(!ticking){
+      ticking=true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll',requestUpdate,{passive:true});
+  window.addEventListener('resize',requestUpdate);
+  window.addEventListener('hashchange',requestUpdate);
+  update();
 })();
 
 /* ---------- Cahn-Hilliard phase separation behind the portrait ---------- */
