@@ -136,7 +136,12 @@ h2{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.2em;
   margin-left:.35rem;vertical-align:1px;white-space:nowrap}
 .me{font-weight:600;color:#fff}
 
-/* teaching */
+/* publication archive */
+.pub-archive{margin-top:.85rem;border-top:1px solid rgba(31,42,54,.6)}
+.pub-archive summary{color:#c3cedb}
+.pub-archive[open] summary{margin-bottom:.15rem}
+
+/* teaching / collapsible blocks */
 details{border-bottom:1px solid rgba(31,42,54,.6)}
 details:last-of-type{border-bottom:0}
 summary{cursor:pointer;list-style:none;padding:.9rem 0;display:flex;align-items:baseline;gap:.9rem}
@@ -319,41 +324,47 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
     </div>
   </div>
 
-  <div class="entry">
-    <div class="yr">2025</div>
-    <div class="bd">
-      <span class="me">Huang, G.-C.</span>, &amp; Lai, T.-H. Legacy code, live risk: Empirical evidence of malware detection gaps.
-      <span class="venue">Applied Sciences</span>, 15(22), 11862.<span class="badge">SCIE</span><span class="badge">EI</span><br>
-      <a class="doi" href="https://doi.org/10.3390/app152211862">doi.org/10.3390/app152211862</a>
+  <details class="pub-archive">
+    <summary>
+      <span class="zh">早期論文</span><span class="en">Earlier Publications</span>
+      <span class="term">2024–2025</span>
+    </summary>
+    <div class="entry">
+      <div class="yr">2025</div>
+      <div class="bd">
+        <span class="me">Huang, G.-C.</span>, &amp; Lai, T.-H. Legacy code, live risk: Empirical evidence of malware detection gaps.
+        <span class="venue">Applied Sciences</span>, 15(22), 11862.<span class="badge">SCIE</span><span class="badge">EI</span><br>
+        <a class="doi" href="https://doi.org/10.3390/app152211862">doi.org/10.3390/app152211862</a>
+      </div>
     </div>
-  </div>
-
-  <div class="entry">
-    <div class="yr">2025</div>
-    <div class="bd">
-      <span class="me">Huang, G.-C.</span> Efficient parameter search for chaotic dynamical systems using Lyapunov-based reinforcement learning.
-      <span class="venue">Symmetry</span>, 17(11), 1832.<span class="badge">SCIE</span><br>
-      <a class="doi" href="https://doi.org/10.3390/sym17111832">doi.org/10.3390/sym17111832</a>
+  
+    <div class="entry">
+      <div class="yr">2025</div>
+      <div class="bd">
+        <span class="me">Huang, G.-C.</span> Efficient parameter search for chaotic dynamical systems using Lyapunov-based reinforcement learning.
+        <span class="venue">Symmetry</span>, 17(11), 1832.<span class="badge">SCIE</span><br>
+        <a class="doi" href="https://doi.org/10.3390/sym17111832">doi.org/10.3390/sym17111832</a>
+      </div>
     </div>
-  </div>
-
-  <div class="entry">
-    <div class="yr">2025</div>
-    <div class="bd">
-      <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Evading antivirus detection using fountain code-based techniques for executing shellcodes.
-      <span class="venue">Sensors</span>, 25(2), 460.<span class="badge">SCIE</span><span class="badge">EI</span><br>
-      <a class="doi" href="https://doi.org/10.3390/s25020460">doi.org/10.3390/s25020460</a>
+  
+    <div class="entry">
+      <div class="yr">2025</div>
+      <div class="bd">
+        <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Evading antivirus detection using fountain code-based techniques for executing shellcodes.
+        <span class="venue">Sensors</span>, 25(2), 460.<span class="badge">SCIE</span><span class="badge">EI</span><br>
+        <a class="doi" href="https://doi.org/10.3390/s25020460">doi.org/10.3390/s25020460</a>
+      </div>
     </div>
-  </div>
-
-  <div class="entry">
-    <div class="yr">2024</div>
-    <div class="bd">
-      <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Chaotic-based shellcode encryption: A new strategy for bypassing antivirus mechanisms.
-      <span class="venue">Symmetry</span>, 16(11), 1526.<span class="badge">SCIE</span><br>
-      <a class="doi" href="https://doi.org/10.3390/sym16111526">doi.org/10.3390/sym16111526</a>
+  
+    <div class="entry">
+      <div class="yr">2024</div>
+      <div class="bd">
+        <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Chaotic-based shellcode encryption: A new strategy for bypassing antivirus mechanisms.
+        <span class="venue">Symmetry</span>, 16(11), 1526.<span class="badge">SCIE</span><br>
+        <a class="doi" href="https://doi.org/10.3390/sym16111526">doi.org/10.3390/sym16111526</a>
+      </div>
     </div>
-  </div>
+  </details>
 </section>
 
 <section id="talks">
@@ -570,8 +581,8 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);
 </section>
 
 <footer>
-  <span class="zh">最後更新 2026.08　·　黃綱正</span>
-  <span class="en">Last updated 2026.08　·　Gang-Cheng Huang</span>
+  <span class="zh">最後更新 2026.09　·　黃綱正</span>
+  <span class="en">Last updated 2026.09　·　Gang-Cheng Huang</span>
 </footer>
 
 </main>
