@@ -152,6 +152,18 @@ a.funding-badge:hover{
 }
 .me{font-weight:600;color:#fff}
 
+/* APA-style publication references */
+.pub-entry{grid-template-columns:1fr;gap:0}
+.apa-ref{padding-left:1.45rem;text-indent:-1.45rem}
+.apa-ref .venue{font-style:italic}
+.apa-doi{overflow-wrap:anywhere}
+.pub-meta{margin-top:.42rem;padding-left:1.45rem}
+.pub-meta .badge:first-child{margin-left:0}
+@media(max-width:560px){
+  .apa-ref{padding-left:1.15rem;text-indent:-1.15rem}
+  .pub-meta{padding-left:1.15rem}
+}
+
 /* publication archive */
 .pub-archive{margin-top:1rem;border-top:1px solid rgba(31,42,54,.58)}
 .pub-archive summary{color:#c3cedb}
@@ -305,47 +317,38 @@ footer{margin-top:4.5rem;padding-top:1.45rem;border-top:1px solid var(--line);
   <h2 class="zh">期刊論文</h2>
   <h2 class="en">Journal Publications</h2>
 
-  <div class="entry">
-    <div class="yr">2026</div>
+  <div class="entry pub-entry">
     <div class="bd">
-      <span class="me">Huang, G.-C.</span> Large-scale modal depletion and strain–gradient amplification precede palinstrophy bursts in two-dimensional forced Kolmogorov flow.
-      <span class="venue">Physics of Fluids</span> <strong>(in press)</strong>.<span class="badge">SCIE</span><a class="badge funding-badge" href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&amp;rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&amp;LANG=chi" target="_blank" rel="noopener noreferrer">NSTC 115-2222-E-163-001</a>
+      <div class="apa-ref"><span class="me">Huang, G.-C.</span> (in press). Large-scale modal depletion and strain–gradient amplification precede palinstrophy bursts in two-dimensional forced Kolmogorov flow. <span class="venue">Physics of Fluids</span>.</div>
+      <div class="pub-meta"><span class="badge">SCIE</span><a class="badge funding-badge" href="https://wrs.nstc.gov.tw/modules/talentSearch/talentSearch.do?action=initRsm17new&amp;rsNo=9f36bfbedc5d427c95b2f1eaf03a637d&amp;LANG=chi" target="_blank" rel="noopener noreferrer">NSTC 115-2222-E-163-001</a></div>
     </div>
   </div>
 
-  <div class="entry">
-    <div class="yr">2026</div>
+  <div class="entry pub-entry">
     <div class="bd">
-      <span class="me">Huang, G.-C.</span> Hybrid quantum architecture search for compact diagnostic surrogates of early-time scrambling signatures in hyperchaotic systems.
-      <span class="venue">Physica Scripta</span>, 101(29), 296008.<span class="badge">SCIE</span><br>
-      <a class="doi" href="https://doi.org/10.1088/1402-4896/ae8ac9">doi.org/10.1088/1402-4896/ae8ac9</a>
+      <div class="apa-ref"><span class="me">Huang, G.-C.</span> (2026). Hybrid quantum architecture search for compact diagnostic surrogates of early-time scrambling signatures in hyperchaotic systems. <span class="venue">Physica Scripta, 101</span>(29), 296008. <a class="apa-doi" href="https://doi.org/10.1088/1402-4896/ae8ac9">https://doi.org/10.1088/1402-4896/ae8ac9</a></div>
+      <div class="pub-meta"><span class="badge">SCIE</span></div>
     </div>
   </div>
 
-  <div class="entry">
-    <div class="yr">2026</div>
+  <div class="entry pub-entry">
     <div class="bd">
-      <span class="me">Huang, G.-C.</span> CIP-BaseX: A lightweight RFC 4648-compatible obfuscation layer against IoT payload fingerprinting.
-      <span class="venue">IEEE Internet of Things Journal</span>, 13(13), 28573–28586.<span class="badge">SCIE</span><span class="badge">EI</span><br>
-      <a class="doi" href="https://doi.org/10.1109/JIOT.2026.3684991">doi.org/10.1109/JIOT.2026.3684991</a>
+      <div class="apa-ref"><span class="me">Huang, G.-C.</span> (2026). CIP-BaseX: A lightweight RFC 4648-compatible obfuscation layer against IoT payload fingerprinting. <span class="venue">IEEE Internet of Things Journal, 13</span>(13), 28573–28586. <a class="apa-doi" href="https://doi.org/10.1109/JIOT.2026.3684991">https://doi.org/10.1109/JIOT.2026.3684991</a></div>
+      <div class="pub-meta"><span class="badge">SCIE</span><span class="badge">EI</span></div>
     </div>
   </div>
 
-  <div class="entry">
-    <div class="yr">2026</div>
+  <div class="entry pub-entry">
     <div class="bd">
-      <span class="me">Huang, G.-C.</span> Robust stabilization of fractional spatiotemporal chaos via model-free deep reinforcement learning.
-      <span class="venue">Physical Review E</span>, 113(4), 044202.<span class="badge">SCIE</span><br>
-      <a class="doi" href="https://doi.org/10.1103/t7s9-bv79">doi.org/10.1103/t7s9-bv79</a>
+      <div class="apa-ref"><span class="me">Huang, G.-C.</span> (2026). Robust stabilization of fractional spatiotemporal chaos via model-free deep reinforcement learning. <span class="venue">Physical Review E, 113</span>(4), 044202. <a class="apa-doi" href="https://doi.org/10.1103/t7s9-bv79">https://doi.org/10.1103/t7s9-bv79</a></div>
+      <div class="pub-meta"><span class="badge">SCIE</span></div>
     </div>
   </div>
 
-  <div class="entry">
-    <div class="yr">2026</div>
+  <div class="entry pub-entry">
     <div class="bd">
-      <span class="me">Huang, G.-C.</span> AI-assisted inverse discovery of 3D/4D multi-scroll attractors and fractional-order robustness assessment.
-      <span class="venue">Physica Scripta</span>, 101(14), 145214.<span class="badge">SCIE</span><br>
-      <a class="doi" href="https://doi.org/10.1088/1402-4896/ae58ff">doi.org/10.1088/1402-4896/ae58ff</a>
+      <div class="apa-ref"><span class="me">Huang, G.-C.</span> (2026). AI-assisted inverse discovery of 3D/4D multi-scroll attractors and fractional-order robustness assessment. <span class="venue">Physica Scripta, 101</span>(14), 145214. <a class="apa-doi" href="https://doi.org/10.1088/1402-4896/ae58ff">https://doi.org/10.1088/1402-4896/ae58ff</a></div>
+      <div class="pub-meta"><span class="badge">SCIE</span></div>
     </div>
   </div>
 
@@ -354,39 +357,32 @@ footer{margin-top:4.5rem;padding-top:1.45rem;border-top:1px solid var(--line);
       <span class="zh">早期論文</span><span class="en">Earlier Publications</span>
       <span class="term">2024–2025</span>
     </summary>
-    <div class="entry">
-      <div class="yr">2025</div>
+
+    <div class="entry pub-entry">
       <div class="bd">
-        <span class="me">Huang, G.-C.</span>, &amp; Lai, T.-H. Legacy code, live risk: Empirical evidence of malware detection gaps.
-        <span class="venue">Applied Sciences</span>, 15(22), 11862.<span class="badge">SCIE</span><span class="badge">EI</span><br>
-        <a class="doi" href="https://doi.org/10.3390/app152211862">doi.org/10.3390/app152211862</a>
+        <div class="apa-ref"><span class="me">Huang, G.-C.</span>, &amp; Lai, T.-H. (2025). Legacy code, live risk: Empirical evidence of malware detection gaps. <span class="venue">Applied Sciences, 15</span>(22), 11862. <a class="apa-doi" href="https://doi.org/10.3390/app152211862">https://doi.org/10.3390/app152211862</a></div>
+        <div class="pub-meta"><span class="badge">SCIE</span><span class="badge">EI</span></div>
       </div>
     </div>
-  
-    <div class="entry">
-      <div class="yr">2025</div>
+
+    <div class="entry pub-entry">
       <div class="bd">
-        <span class="me">Huang, G.-C.</span> Efficient parameter search for chaotic dynamical systems using Lyapunov-based reinforcement learning.
-        <span class="venue">Symmetry</span>, 17(11), 1832.<span class="badge">SCIE</span><br>
-        <a class="doi" href="https://doi.org/10.3390/sym17111832">doi.org/10.3390/sym17111832</a>
+        <div class="apa-ref"><span class="me">Huang, G.-C.</span> (2025). Efficient parameter search for chaotic dynamical systems using Lyapunov-based reinforcement learning. <span class="venue">Symmetry, 17</span>(11), 1832. <a class="apa-doi" href="https://doi.org/10.3390/sym17111832">https://doi.org/10.3390/sym17111832</a></div>
+        <div class="pub-meta"><span class="badge">SCIE</span></div>
       </div>
     </div>
-  
-    <div class="entry">
-      <div class="yr">2025</div>
+
+    <div class="entry pub-entry">
       <div class="bd">
-        <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Evading antivirus detection using fountain code-based techniques for executing shellcodes.
-        <span class="venue">Sensors</span>, 25(2), 460.<span class="badge">SCIE</span><span class="badge">EI</span><br>
-        <a class="doi" href="https://doi.org/10.3390/s25020460">doi.org/10.3390/s25020460</a>
+        <div class="apa-ref"><span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. (2025). Evading antivirus detection using fountain code-based techniques for executing shellcodes. <span class="venue">Sensors, 25</span>(2), 460. <a class="apa-doi" href="https://doi.org/10.3390/s25020460">https://doi.org/10.3390/s25020460</a></div>
+        <div class="pub-meta"><span class="badge">SCIE</span><span class="badge">EI</span></div>
       </div>
     </div>
-  
-    <div class="entry">
-      <div class="yr">2024</div>
+
+    <div class="entry pub-entry">
       <div class="bd">
-        <span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. Chaotic-based shellcode encryption: A new strategy for bypassing antivirus mechanisms.
-        <span class="venue">Symmetry</span>, 16(11), 1526.<span class="badge">SCIE</span><br>
-        <a class="doi" href="https://doi.org/10.3390/sym16111526">doi.org/10.3390/sym16111526</a>
+        <div class="apa-ref"><span class="me">Huang, G.-C.</span>, Chang, K.-C., &amp; Lai, T.-H. (2024). Chaotic-based shellcode encryption: A new strategy for bypassing antivirus mechanisms. <span class="venue">Symmetry, 16</span>(11), 1526. <a class="apa-doi" href="https://doi.org/10.3390/sym16111526">https://doi.org/10.3390/sym16111526</a></div>
+        <div class="pub-meta"><span class="badge">SCIE</span></div>
       </div>
     </div>
   </details>
