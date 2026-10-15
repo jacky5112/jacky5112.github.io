@@ -73,6 +73,9 @@ li.zh,li.en{display:list-item}
   margin:.38rem 0 0;color:var(--muted);letter-spacing:.01em}
 .role{margin:.9rem 0 0;font-size:.9rem;line-height:1.58;color:var(--text)}
 .role .dept{display:block;color:var(--muted)}
+.role-link{display:inline-block;color:inherit;border-bottom:0}
+.role-link:hover{color:var(--accent);border-bottom:0}
+.role-link:hover .dept{color:var(--accent)}
 
 .rail-block{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--line)}
 .rail-h{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
@@ -244,10 +247,10 @@ footer{margin-top:4.5rem;padding-top:1.45rem;border-top:1px solid var(--line);
   <h1 class="name-zh zh">黃綱正</h1>
   <h1 class="name-en">Gang-Cheng Huang, Ph.D.</h1>
 
-  <p class="role zh">助理教授
-    <span class="dept">中國科技大學 資訊工程系</span></p>
-  <p class="role en">Assistant Professor
-    <span class="dept">Dept. of Computer Science &amp; Information Engineering,<br>China University of Technology</span></p>
+  <p class="role zh"><a class="role-link" href="https://dcsie.gm.cute.edu.tw/%E7%B3%BB%E6%89%80%E4%BB%8B%E7%B4%B9/%E5%B0%88%E4%BB%BB%E5%B8%AB%E8%B3%87/%E9%BB%83%E7%B6%B1%E6%AD%A3%E5%8A%A9%E7%90%86%E6%95%99%E6%8E%88%E5%85%BC%E9%99%A2%E7%89%B9%E5%8A%A9" target="_blank" rel="noopener noreferrer">助理教授
+    <span class="dept">中國科技大學 資訊工程系</span></a></p>
+  <p class="role en"><a class="role-link" href="https://dcsie.gm.cute.edu.tw/%E7%B3%BB%E6%89%80%E4%BB%8B%E7%B4%B9/%E5%B0%88%E4%BB%BB%E5%B8%AB%E8%B3%87/%E9%BB%83%E7%B6%B1%E6%AD%A3%E5%8A%A9%E7%90%86%E6%95%99%E6%8E%88%E5%85%BC%E9%99%A2%E7%89%B9%E5%8A%A9" target="_blank" rel="noopener noreferrer">Assistant Professor
+    <span class="dept">Dept. of Computer Science &amp; Information Engineering,<br>China University of Technology</span></a></p>
 
   <nav class="site-nav" aria-label="Section navigation">
     <ul class="nav-list">
