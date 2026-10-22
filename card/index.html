@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0f14">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Digital academic contact card for Gang-Cheng Huang (黃綱正), Assistant Professor at China University of Technology. Save contact details, view the academic website, or connect by email.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Gang-Cheng Huang | Academic Digital Card">
+<meta property="og:description" content="Assistant Professor · China University of Technology · Academic contact card">
+<meta property="og:url" content="https://jacky5112.github.io/card/">
+<meta property="og:image" content="https://jacky5112.github.io/GCH_img.jpg">
+<link rel="canonical" href="https://jacky5112.github.io/card/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+TC:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<title>Gang-Cheng Huang 黃綱正 | Digital Academic Card</title>
+<style>
+:root{
+  --bg:#0b0f14;--panel:#121a23;--line:#263440;--text:#dbe3ec;
+  --muted:#8c9bae;--accent:#79b8c9;--serif:"IBM Plex Serif",Georgia,serif;
+  --sans:"IBM Plex Sans","IBM Plex Sans TC",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;margin:0;color:var(--text);font:15px/1.65 var(--sans);
+  background:radial-gradient(ellipse 55rem 38rem at 90% 0%,rgba(92,130,161,.11),transparent 67%),var(--bg);
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+[data-lang="zh"] .en,[data-lang="en"] .zh{display:none}
+.shell{max-width:1000px;margin:auto;padding:1.65rem clamp(1rem,4vw,2rem) 2.2rem}
+.topbar{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:2.3rem}
+.brand{display:inline-flex;align-items:center;gap:.75rem;font:500 .76rem/1.4 var(--mono);letter-spacing:.025em;color:#c8d3de}
+.brand img{width:2rem;height:2rem;display:block}
+.langbar{display:inline-flex;flex-shrink:0;padding:3px;border:1px solid var(--line);border-radius:999px;background:rgba(18,26,35,.7)}
+.langbar button{border:0;border-radius:999px;padding:.32rem .76rem;background:transparent;color:var(--muted);cursor:pointer;font:500 .7rem var(--mono)}
+.langbar button[aria-pressed="true"]{background:#263745;color:#e8eff6}
+.business-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 24px 70px rgba(0,0,0,.22);overflow:hidden}
+.identity{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:clamp(1.65rem,4.3vw,3.2rem);min-height:660px}
+.identity:after{content:"";pointer-events:none;position:absolute;z-index:-1;width:430px;height:430px;left:-205px;bottom:-245px;border:1px solid rgba(121,184,201,.11);border-radius:50%;box-shadow:0 0 0 55px rgba(121,184,201,.023),0 0 0 110px rgba(121,184,201,.015)}
+.eyebrow{color:var(--accent);font:500 .7rem/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.headshot{margin:2.35rem 0 1.65rem;width:114px;height:143px;border-radius:10px;object-fit:cover;object-position:center 40%;border:1px solid #374453}
+h1{margin:0;font:500 clamp(2rem,4.5vw,2.7rem)/1.15 var(--serif);letter-spacing:-.015em;color:#edf2f7}
+.name-zh{margin:.45rem 0 1.5rem;font-family:var(--serif);font-weight:600;font-size:1.17rem;letter-spacing:.06em;color:#aab8c8}
+.name-zh span{font:400 .8rem var(--mono);letter-spacing:.02em;margin-left:.4rem}
+.rule{width:2.4rem;height:2px;background:var(--accent);margin-bottom:1.4rem}
+.role{font-weight:600;font-size:1.07rem;margin:0 0 .38rem;color:#e1eaf4}
+.dept{margin:0;line-height:1.68;color:#acbac9;font-size:.95rem;max-width:27rem}
+.institution{margin-top:.65rem;color:var(--muted);font-size:.93rem}
+.focus{display:flex;flex-wrap:wrap;gap:.52rem;margin-top:auto;padding-top:2.7rem}
+.focus span{display:inline-block;padding:.28rem .55rem;border:1px solid #30404e;border-radius:4px;color:#97abba;font:400 .7rem/1.5 var(--mono)}
+.contacts{display:flex;flex-direction:column;gap:1.2rem;border-left:1px solid var(--line);padding:clamp(1.65rem,4.3vw,3.2rem)}
+.contacts h2{font:500 .73rem var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin:0 0 .4rem}
+.save{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.18rem;background:var(--accent);color:#0b1922;font-weight:600;border-radius:9px;transition:background .18s ease,transform .18s ease}
+.save:hover{background:#a3d0dc;color:#0b1922;transform:translateY(-1px)}
+.save svg{flex-shrink:0}
+.save-note{font-size:.77rem;color:var(--muted);margin:.6rem 0 0}
+.links{margin-top:.4rem;border-top:1px solid var(--line)}
+.linkrow{display:flex;align-items:center;gap:.55rem;padding:.88rem 0;border-bottom:1px solid var(--line);min-width:0}
+.linktext{flex:1;min-width:0}
+.linklabel{display:block;font:500 .65rem var(--mono);color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.14rem}
+.linkvalue{display:block;color:#d0dce8;font-size:.89rem;overflow-wrap:anywhere}
+.linkrow:hover .linkvalue{color:var(--accent)}
+.arrow{align-self:center;color:var(--accent);font-size:1rem}
+.qrbox{display:flex;align-items:center;gap:1.15rem;margin-top:auto;padding-top:1.5rem}
+.qrimage{width:139px;min-width:139px;height:139px;padding:7px;border-radius:8px;background:#fff;display:block}
+.qrimage img{display:block;width:100%;height:100%;image-rendering:pixelated}
+.qrdetails{min-width:0}
+.qrtitle{font-weight:600;font-size:.91rem;color:#e1eaf4;line-height:1.45}
+.qrhelp{color:var(--muted);font-size:.8rem;margin:.22rem 0 .7rem}
+.qrdownload,.copy{display:inline-block;padding:0;color:var(--accent);border:0;border-bottom:1px solid rgba(121,184,201,.4);background:transparent;font:500 .76rem var(--mono);cursor:pointer}
+.copy{margin-top:.8rem}
+#copy-status{display:block;color:#b3c7d2;font-size:.73rem;min-height:1.4em;margin-top:.35rem}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.55rem;margin-top:1.2rem;font:.7rem/1.6 var(--mono);color:#8593a4}
+.foot a{color:#aab8c8;border-bottom:1px solid #344453}
+.foot a:hover{color:var(--accent)}
+@media(max-width:760px){
+  .shell{max-width:620px}
+  .topbar{margin-bottom:1.25rem}
+  .business-card{grid-template-columns:1fr}
+  .identity{min-height:0;padding:1.75rem}
+  .identity:after{width:300px;height:300px;bottom:-170px;left:-170px}
+  .headshot{width:100px;height:125px;margin:1.6rem 0 1.25rem}
+  .name-zh{margin-bottom:1.2rem}
+  .focus{padding-top:1.5rem}
+  .contacts{border-left:0;border-top:1px solid var(--line);padding:1.75rem}
+  .qrbox{margin-top:1.2rem}
+}
+@media(max-width:380px){
+  .shell{padding:1rem .7rem 1.5rem}
+  .brand{font-size:.69rem}
+  .identity,.contacts{padding:1.35rem}
+  .qrimage{width:115px;height:115px;min-width:115px}
+}
+@media(prefers-reduced-motion:reduce){.save{transition:none}.save:hover{transform:none}}
+@media print{
+  :root{--bg:#fff;--panel:#fff;--text:#18202a;--muted:#596678;--line:#d1d8de}
+  body{background:#fff;color:#18202a}
+  .shell{padding:0;max-width:none}
+  .langbar,.copy,.qrdownload{display:none}
+  .business-card{box-shadow:none}
+  .identity,.contacts{min-height:0}
+  .role,.dept,.institution,.linkvalue,.name-zh,h1,.qrtitle{color:#18202a}
+  .focus span,.eyebrow{color:#355b6b}
+  .save{border:1px solid #355b6b;background:transparent;color:#18202a}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Go to Gang-Cheng Huang academic homepage">
+      <img src="/favicon.svg" alt="" width="32" height="32">
+      <span>GANG-CHENG HUANG</span>
+    </a>
+    <div class="langbar" role="group" aria-label="Language">
+      <button type="button" id="lang-zh" aria-pressed="false" lang="zh-Hant">中文</button>
+      <button type="button" id="lang-en" aria-pressed="true" lang="en">EN</button>
+    </div>
+  </header>
+
+  <main class="business-card">
+    <section class="identity" aria-labelledby="person-name">
+      <div class="eyebrow en">ACADEMIC DIGITAL CARD</div>
+      <div class="eyebrow zh">學術數位名片</div>
+      <img class="headshot" src="/GCH_img.jpg" width="114" height="143" alt="Gang-Cheng Huang 黃綱正">
+      <h1 id="person-name">Gang-Cheng Huang</h1>
+      <div class="name-zh">黃綱正 <span>Ph.D.</span></div>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="role en">Assistant Professor</p>
+      <p class="role zh">助理教授</p>
+      <p class="dept en">Department of Computer Science and Information Engineering</p>
+      <p class="dept zh">資訊工程系</p>
+      <p class="institution en">China University of Technology · Taiwan</p>
+      <p class="institution zh">中國科技大學 · 臺灣</p>
+      <div class="focus" aria-label="Research areas">
+        <span>AI for Science</span>
+        <span>Nonlinear Dynamics</span>
+        <span>Cybersecurity</span>
+      </div>
+    </section>
+
+    <section class="contacts" aria-label="Contact details">
+      <div>
+        <h2 class="en">CONNECT</h2>
+        <h2 class="zh">聯絡資訊</h2>
+        <a class="save" href="./Gang-Cheng-Huang.vcf" download="Gang-Cheng-Huang.vcf" type="text/vcard">
+          <span class="en">Save Contact</span>
+          <span class="zh">儲存聯絡人</span>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M4 17v3h16v-3"/></svg>
+        </a>
+        <p class="save-note en">Download a vCard (.vcf) for iPhone or Android.</p>
+        <p class="save-note zh">下載 vCard（.vcf），可匯入 iPhone 或 Android 通訊錄。</p>
+      </div>
+
+      <div class="links">
+        <a class="linkrow" href="mailto:jacky5112@cute.edu.tw">
+          <span class="linktext"><span class="linklabel">Email</span><span class="linkvalue">jacky5112@cute.edu.tw</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="linkrow" href="https://jacky5112.github.io/" target="_blank" rel="noopener noreferrer">
+          <span class="linktext"><span class="linklabel en">Academic Website</span><span class="linklabel zh">學術網站</span><span class="linkvalue">jacky5112.github.io</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="linkrow" href="https://orcid.org/0009-0001-5932-5761" target="_blank" rel="noopener noreferrer">
+          <span class="linktext"><span class="linklabel">ORCID</span><span class="linkvalue">0009-0001-5932-5761</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="linkrow" href="https://dcsie.gm.cute.edu.tw/%E7%B3%BB%E6%89%80%E4%BB%8B%E7%B4%B9/%E5%B0%88%E4%BB%BB%E5%B8%AB%E8%B3%87/%E9%BB%83%E7%B6%B1%E6%AD%A3%E5%8A%A9%E7%90%86%E6%95%99%E6%8E%88%E5%85%BC%E9%99%A2%E7%89%B9%E5%8A%A9" target="_blank" rel="noopener noreferrer">
+          <span class="linktext"><span class="linklabel en">University Profile</span><span class="linklabel zh">學校師資頁</span><span class="linkvalue en">China University of Technology</span><span class="linkvalue zh">中國科技大學</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="qrbox">
+        <div class="qrimage">
+          <img src="./qr.svg" width="125" height="125" alt="QR code to open Gang-Cheng Huang's digital academic card">
+        </div>
+        <div class="qrdetails">
+          <div class="qrtitle en">Share this card</div>
+          <div class="qrtitle zh">分享這張名片</div>
+          <p class="qrhelp en">Scan the QR code to open this page.</p>
+          <p class="qrhelp zh">掃描 QR Code 即可開啟這個頁面。</p>
+          <a class="qrdownload en" href="./qr.svg" download="Gang-Cheng-Huang-QR.svg">Download QR (SVG) ↓</a>
+          <a class="qrdownload zh" href="./qr.svg" download="Gang-Cheng-Huang-QR.svg">下載 QR Code（SVG）↓</a>
+          <div><button type="button" class="copy" id="copy-link"><span class="en">Copy card link</span><span class="zh">複製名片網址</span></button></div>
+          <span id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="en">Academic contact · Gang-Cheng Huang</span>
+    <span class="zh">學術聯絡 · 黃綱正</span>
+    <a href="/" class="en">Full academic profile ↗</a>
+    <a href="/" class="zh">完整學術履歷 ↗</a>
+  </footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  var buttons={zh:document.getElementById('lang-zh'),en:document.getElementById('lang-en')};
+  var lang=(navigator.language||'en').toLowerCase().startsWith('zh')?'zh':'en';
+  function setLanguage(next){
+    lang=next;
+    root.setAttribute('data-lang',next);
+    root.setAttribute('lang',next==='zh'?'zh-Hant':'en');
+    buttons.zh.setAttribute('aria-pressed',String(next==='zh'));
+    buttons.en.setAttribute('aria-pressed',String(next==='en'));
+    document.getElementById('copy-status').textContent='';
+  }
+  buttons.zh.addEventListener('click',function(){setLanguage('zh')});
+  buttons.en.addEventListener('click',function(){setLanguage('en')});
+  setLanguage(lang);
+  document.getElementById('copy-link').addEventListener('click',function(){
+    var status=document.getElementById('copy-status');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText('https://jacky5112.github.io/card/').then(
+        function(){status.textContent=lang==='zh'?'已複製名片網址':'Card link copied'},
+        function(){status.textContent=lang==='zh'?'無法複製，請使用瀏覽器分享功能':'Copy unavailable; use browser Share'}
+      );
+    }else{
+      status.textContent=lang==='zh'?'請使用瀏覽器分享功能':'Use your browser Share menu';
+    }
+  });
+})();
+</script>
+</body>
+</html>
