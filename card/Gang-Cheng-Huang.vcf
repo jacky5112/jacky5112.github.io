@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Huang;Gang-Cheng;;;
+FN:Gang-Cheng Huang (黃綱正)
+TITLE:Assistant Professor
+ORG:China University of Technology;Department of Computer Science and
+ Information Engineering
+EMAIL;TYPE=INTERNET,WORK:jacky5112@cute.edu.tw
+URL;TYPE=WORK:https://jacky5112.github.io/
+NOTE:ORCID https://orcid.org/0009-0001-5932-5761
+END:VCARD
